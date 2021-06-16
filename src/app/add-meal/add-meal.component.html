@@ -1,0 +1,23 @@
+<div style="margin: auto; width: 100%; border: 3px solid #73ad21">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add a new meal</mat-card-title>
+        </mat-card-header>
+        <mat-card-content><br />
+            <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+            <form>
+                <mat-form-field appearance="fill" style="width: 100%">
+                    <select matNativeControl required (change)="getRecipeId($event)">
+                        <option selected disabled>Recipes</option>
+                        <option *ngFor="let s of recipes" [value]="s.id">{{s.name}}</option>
+                      </select>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" [disabled]="disabledBtn" (click)="addRecipe()"
+                    style="width: 10em !important">
+                    Save
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

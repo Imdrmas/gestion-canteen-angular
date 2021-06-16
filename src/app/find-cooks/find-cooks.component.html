@@ -1,0 +1,21 @@
+<mat-card-header>
+  <mat-card-title>list of cooks</mat-card-title>
+</mat-card-header>
+<hr/>
+<ol class="list-group list-group-numbered" *ngFor="let cook of cooks; let i = index">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{i+1}} Cook</div>
+        {{cook.firstname}} - {{cook.lastname}}
+       
+        <button type="button" class="btn btn-link" (click)="addRecipe(cook.id)">Add a new recipe</button>
+        <span class="badge bg-danger" style="cursor: pointer; margin-left: 5px;" (click)="deleteCook(cook.id)">Delete</span>
+        <span class="badge bg-success" style="cursor: pointer; margin-left: 5px;" (click)="updateCook(cook.id)">Update</span>
+      </div>
+    </li>
+    </ol>
+  <hr>
+
+<mat-card-actions>
+    <button type="button" class="btn btn-danger btn-lg" (click)="addCook()">Add a new cook</button>
+</mat-card-actions>

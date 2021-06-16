@@ -1,0 +1,44 @@
+<div class="card mb-3" style="max-width: 740px;" *ngFor="let item of recipes">
+    <div class="row g-0">
+      <div class="col-md-4 mt-5">
+        <img src="{{item.photo}}" alt="..." style="width: 200px;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{item.name}}</h2>
+          <p class="card-text">{{item.description}}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <span class="badge bg-danger" style="cursor: pointer; margin-left: 5px;" (click)="deleteRecipe(item.id)">Delete</span>
+          <span class="badge bg-success" style="cursor: pointer; margin-left: 5px;" (click)="updateRecipe(item.id)">Update</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>List of students</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Added</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of students; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.firstname}}</td>
+        <td>{{item.lastname}}</td>
+        <td>{{item.addedAt|date}}</td>
+        <td><span class="badge bg-success" style="cursor: pointer;" (click)="updateStudent(item.id)">Update</span>
+        <span class="badge bg-danger" style="cursor: pointer; margin-left: 5px;" (click)="deleteStudent(item.id)">Delete</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <mat-card-actions>
+    <button type="button" class="btn btn-danger btn-lg" (click)="addStudent()">Add a new student</button>
+</mat-card-actions>

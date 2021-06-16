@@ -1,0 +1,25 @@
+<div style="margin: auto; width: 100%; border: 3px solid #73ad21">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add a new student</mat-card-title>
+        </mat-card-header>
+        <mat-card-content><br />
+            <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+            <form>
+                <mat-form-field appearance="fill" style="width: 100%">
+                    <mat-label>Enter firstname</mat-label>
+                    <input matInput type="text" placeholder="firstname" name="firstname" [(ngModel)]="student.firstname" #firstname="ngModel" required />
+                </mat-form-field><br />
+
+                <mat-form-field appearance="fill" style="width: 100%">
+                    <mat-label>Enter lastname</mat-label>
+                    <input matInput type="text" placeholder="lastname" name="lastname" [(ngModel)]="student.lastname" #lastname="ngModel" required />
+                </mat-form-field><br />
+
+                <button mat-raised-button color="primary" [disabled]="firstname.invalid || lastname.invalid"(click)="addStudent()" style="width: 10em !important">
+                    Save
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

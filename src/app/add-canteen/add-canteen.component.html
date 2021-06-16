@@ -1,0 +1,32 @@
+<div style="margin: auto; width: 100%; border: 3px solid #73ad21">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add a new canteen</mat-card-title>
+        </mat-card-header>
+        <mat-card-content><br />
+            <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+            <form>
+                <mat-form-field appearance="fill" style="width: 100%">
+                    <mat-label>Enter capacity</mat-label>
+                    <input matInput type="number" placeholder="capacity" name="capacity" [(ngModel)]="canteen.capacity" #capacity="ngModel" required />
+                </mat-form-field><br />
+
+                <mat-form-field style="width: 100%">
+                    <mat-label>Enter open</mat-label>
+                    <input type="time" matInput placeholder="open" name="open" [(ngModel)]="canteen.open" #open="ngModel" required />
+                </mat-form-field>
+                <br />
+
+                <mat-form-field style="width: 100%">
+                    <mat-label>Enter close</mat-label>
+                    <input type="time" matInput placeholder="close" name="close" [(ngModel)]="canteen.close" #close="ngModel" required />
+                </mat-form-field>
+                <br />
+
+                <button mat-raised-button color="primary" [disabled]="capacity.invalid || open.invalid || close.invalid"(click)="addCanteen()" style="width: 10em !important">
+                    Save
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
